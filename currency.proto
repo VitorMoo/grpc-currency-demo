@@ -1,0 +1,19 @@
+
+syntax = "proto3";
+
+option go_package = "demo/server/pb";
+
+package currency;
+
+service CurrencyService {
+  rpc GetRate(RateRequest) returns (RateResponse);
+}
+
+message RateRequest {
+  string from_currency = 1;
+  string to_currency = 2;
+}
+
+message RateResponse {
+  double price = 1;
+}
